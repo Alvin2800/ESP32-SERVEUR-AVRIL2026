@@ -23,7 +23,7 @@ def init_db():
         cursor=conn.cursor()
 
         cursor.execute("""
-        CREATE table measuring(
+        CREATE table measuring2(
                        id PRIMARY KEY AUTO_INCREMENT,
                        timestamp DATETIME NOT NULL,
                        distance float NOT NULL,
@@ -43,7 +43,7 @@ def inser_data():
         conn=db_connection()
         cursor=conn.cursor()
         cursor.execute("""
-        INSERT INTO measuring (timestamp,distance,alert) 
+        INSERT INTO measuring2 (timestamp,distance,alert) 
                        VALUES(%s,%s,%s)
                         """(timestamp,distance,alert))
         conn.commit()
