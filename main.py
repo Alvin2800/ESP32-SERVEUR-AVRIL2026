@@ -21,7 +21,7 @@ def db_connection():
     return mysql.connector.connect(**db_config)
 
 # creation de notre table
-def init_db():
+def init_dblog():
     try:
         conn = db_connection()
         cursor = conn.cursor()
@@ -43,7 +43,7 @@ def init_db():
     except Exception as e:
         print("erreur base donnée", e, flush=True)
 
-init_db()
+init_dblog()
 
 # insertion des données dans la table
 def inser_data(timestamp, distance, alert):
