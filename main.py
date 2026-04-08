@@ -27,7 +27,7 @@ def init_db():
         cursor = conn.cursor()
 
         cursor.execute("""
-        CREATE TABLE IF NOT EXISTS measuring (
+        CREATE TABLE IF NOT EXISTS measuring2 (
             id INT AUTO_INCREMENT PRIMARY KEY,
             timestamp DATETIME NOT NULL,
             distance FLOAT NOT NULL,
@@ -52,7 +52,7 @@ def inser_data(timestamp, distance, alert):
         cursor = conn.cursor()
 
         cursor.execute("""
-            INSERT INTO measuring (timestamp, distance, alert)
+            INSERT INTO measuring2 (timestamp, distance, alert)
             VALUES (%s, %s, %s)
         """, (timestamp, distance, alert))
 
@@ -103,7 +103,7 @@ def logs():
 
         cursor.execute("""
             SELECT timestamp, distance, alert
-            FROM measuring
+            FROM measuring2
             ORDER BY timestamp DESC
             LIMIT 100
         """)
